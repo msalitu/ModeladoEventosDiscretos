@@ -50,7 +50,7 @@ public class McBurgerModel extends Model implements Parameterizable{
 
 	@Override
 	public String description() {
-		return "Describe lo que hace el modelo";
+		return "Modelo McBurger";
 	}
 
 	@Override

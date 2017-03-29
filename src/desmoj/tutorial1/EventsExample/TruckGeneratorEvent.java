@@ -32,7 +32,7 @@ public class TruckGeneratorEvent extends ExternalEvent {
 	public void eventRoutine() {
 
 		// get a reference to the model
-		EventsExample model = (EventsExample)getModel();
+		EventExample model = (EventExample)getModel();
 
 		// create a new truck
 		Truck truck = new Truck(model, "Truck", true);

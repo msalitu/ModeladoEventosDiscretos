@@ -14,7 +14,7 @@ public class ServiceEndEvent extends EventOf2Entities<VanCarrier,Truck> {
 	 * A reference to the model this event is a part of.
 	 * Useful shortcut to access the model's static components
 	 */
-	private EventsExample myModel;
+	private EventExample myModel;
 
 	/**
 	 * Constructor of the service end event
@@ -28,7 +28,7 @@ public class ServiceEndEvent extends EventOf2Entities<VanCarrier,Truck> {
 	public ServiceEndEvent(Model owner, String name, boolean showInTrace) {
 		super(owner, name, showInTrace);
 		// store a reference to the model this event is associated with
-		myModel = (EventsExample)owner;
+		myModel = (EventExample)owner;
 	}
 
 	/**

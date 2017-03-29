@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit;
  * serves the next truck.
  * @author Olaf Neidhardt, Ruth Meyer
  */
-public class EventsExample extends Model {
+public class EventExample extends Model {
 
 	/**
 	 * model parameter: the number of van carriers
@@ -60,7 +60,7 @@ public class EventsExample extends Model {
 	 * @param showInReport flag to indicate if this model shall produce output to the report file
 	 * @param showInTrace flag to indicate if this model shall produce output to the trace file
 	 */
-	public EventsExample(Model owner, String modelName, boolean showInReport, boolean showInTrace) {
+	public EventExample(Model owner, String modelName, boolean showInReport, boolean showInTrace) {
 		super(owner, modelName, showInReport, showInTrace);
 	}
 	/**
@@ -193,7 +193,7 @@ public class EventsExample extends Model {
         Experiment.setReferenceUnit(java.util.concurrent.TimeUnit.MINUTES);
 		// create model and experiment
        
-		EventsExample model = new EventsExample(null, "EventsExample", true, false);
+		EventExample model = new EventExample(null, "EventsExample", true, false);
                 // null as first parameter because it is the main model and has no mastermodel
       
                 Experiment exp = new Experiment("EventExampleExperiment");
