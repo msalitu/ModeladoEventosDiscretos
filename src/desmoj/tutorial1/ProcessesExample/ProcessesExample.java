@@ -30,7 +30,7 @@ public class ProcessesExample extends Model {
 	* onto the truck.
 	* See init() method for stream parameters.
 	*/
-	private desmoj.core.dist.ContDistExponential serviceTime;
+	private desmoj.core.dist.ContDistUniform serviceTime;
 	/**
 	* A waiting queue object is used to represent the parking area for
 	* the trucks.
@@ -118,7 +118,7 @@ public class ProcessesExample extends Model {
 		// 7.0                 = maximum time in minutes to deliver a container
 		// true                = show in report?
 		// false               = show in trace?
-		serviceTime= new ContDistExponential(this, "ServiceTimeStream", 4.0, true, false);
+		serviceTime= new ContDistUniform(this, "ServiceTimeStream", 3.0, 7.0, true, false);
 
 		// initalising the truckArrivalTimeStream
 		// Parameters:
@@ -200,9 +200,7 @@ public class ProcessesExample extends Model {
 
 		// set experiment parameters
 		exp.setShowProgressBar(true);  // display a progress bar (or not)
-		Experiment.setEpsilon(java.util.concurrent.TimeUnit.SECONDS);
-        Experiment.setReferenceUnit(java.util.concurrent.TimeUnit.MINUTES);
-		exp.stop(new TimeInstant(150000, TimeUnit.MINUTES));   // set end of simulation at 1500 minutes
+		exp.stop(new TimeInstant(1500, TimeUnit.MINUTES));   // set end of simulation at 1500 minutes
 		exp.tracePeriod(new TimeInstant(0), new TimeInstant(100, TimeUnit.MINUTES));  // set the period of the trace
 		exp.debugPeriod(new TimeInstant(0), new TimeInstant(50, TimeUnit.MINUTES));   // and debug output
 			// ATTENTION!
