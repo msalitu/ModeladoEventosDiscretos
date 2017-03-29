@@ -40,7 +40,7 @@ public class VancarrierModel extends Model implements Parameterizable {
 	* on the truck.
 	* See Vancarrier_1st_p_model.init() method for stream parameters.
 	*/
-	private ContDistUniform serviceTime;
+	private ContDistExponential serviceTime;
 	
 	/**
 	* A waiting-queue object is used to represent the parking area for
@@ -195,9 +195,10 @@ public class VancarrierModel extends Model implements Parameterizable {
         waitTimeHistogram = new Histogram(this, "Truck Wait Times", 0, 16, 10, true, false);
 
         // distributions
-		serviceTime = new ContDistUniform(this, "ServiceTimeStream", 3.0, 7.0, true, false);
-		truckArrivalTime = new ContDistExponential(this, "TruckArrivalTimeStream", 3.0, true, false);
-
+		serviceTime = new ContDistExponential(this, "ServiceTimeStream", 4.0, true, false);
+		truckArrivalTime = new ContDistExponential(this, "TruckArrivalTimeStream", 4.0, true, false);
+		serviceTime.setNonNegative(true);
+		truckArrivalTime.setNonNegative(true);
 		// queues
 		truckQueue = new ProcessQueue<Truck>(this, "Truck Queue", true, false);
 		idleVCQueue = new ProcessQueue<VC>(this, "idle VC Queue", true, false);
@@ -245,8 +246,8 @@ public class VancarrierModel extends Model implements Parameterizable {
 
 		// now set the time this simulation should stop at 
 		// let him work 1500 Minutes
-		experiment.stop(new TimeInstant(1500));
-		experiment.setShowProgressBar(false);
+		experiment.stop(new TimeInstant(150000));
+		experiment.setShowProgressBar(true);
 
 		// start the Experiment with start time 0.0
 		experiment.start();
