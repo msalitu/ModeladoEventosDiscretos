@@ -13,8 +13,8 @@ import desmoj.core.simulator.TimeSpan;
 
 public class McBurgerEventModel extends Model {
 	
-	private final Integer NUM_DEPENDIENTES = 4;
-	private final Integer NUM_COCINEROS = 2;
+	private final Integer NUM_DEPENDIENTES = 2;
+	private final Integer NUM_COCINEROS = 4;
 	private ContDistExponential tiempoLlegadaCliente;
 	private ContDistExponential tiempoServicio;
 	private ContDistExponential tiempoCocina;
@@ -104,7 +104,7 @@ public class McBurgerEventModel extends Model {
 	   model.connectToExperiment(exp);
 	   
 	   exp.setShowProgressBar(true);  
-	   exp.stop(new TimeInstant(1500, TimeUnit.MINUTES)); 
+	   exp.stop(new TimeInstant(720, TimeUnit.MINUTES)); 
 	   exp.tracePeriod(new TimeInstant(0), new TimeInstant(100, TimeUnit.MINUTES));                                         
 	   exp.debugPeriod(new TimeInstant(0), new TimeInstant(50, TimeUnit.MINUTES)); 
 	   exp.start();
